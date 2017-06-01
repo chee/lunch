@@ -5,14 +5,11 @@ const TYPE_MESSAGE = 'message'
 
 const MSG_CLEAR = /clear\s+orders/
 const MSG_ORDER = /(?:no,?\s+)?order\s+me\s+(.*)/
-const MSG_LIST = /show\s+(?:all\s+)orders/
+const MSG_LIST = /show\s+(?:all\s+)?orders/
 
-const REPLY_CLEAR = '⚡! all gone'
-const REPLY_ORDER = '📝 got it: '
-
-const replyClear = () => '⚡ all gone'
-const replyOrder = order => `📝 got it (${order})`
-const replyList = orders => Object.entries(orders).map(([user, order], index) => `${index}. ${order} (by ${user})`).join('\n')
+const replyClear = () => 'all gone ✨'
+const replyOrder = order => `👍 got it (${order})`
+const replyList = orders => Object.entries(orders).map(([user, order], index) => `${index + 1}. ${order} (by ${user})`).join('\n')
 
 let orders = {}
 
@@ -23,7 +20,7 @@ const SlackBot = require('slackbots')
 
 const bot = new SlackBot({
   token: process.env.token,
-  name: 'fneh'
+  name: 'lunchbot'
 })
 
 bot.on(EVENT_MESSAGE, data => {
