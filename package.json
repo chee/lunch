@@ -12,7 +12,7 @@
   "keywords": [
     "lunch"
   ],
-  "author": "chee <chee@snaek.org> (https://snaek.org/)",
+  "author": "chee <yay@chee.party> (https://chee.party/)",
   "license": "GPL-3.0",
   "dependencies": {
     "dotenv": "^4.0.0",
